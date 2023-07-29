@@ -10,10 +10,12 @@ const Home = () => {
   const { products } = useSelector((state) => state.products);
   return (
     <>
+    <div className=" bg-gradient-to-b from-blue-700 to bg-blue-900">
       <div className="container">
         <div className="col-md-12">
           <div className="row">
-            <h1 className="text-center">All Products</h1>
+          <h1 className="text-center my-10">allproducts</h1>
+            
             {products &&
               products.map((item) => {
                 return (
@@ -26,7 +28,7 @@ const Home = () => {
                     <div class="card-body">
                       <p class="card-text">{item.title}</p>
                       <p class="card-text">{item.price}</p>
-                      <button  onClick={()=>dispatch(AddToCart(item))} className="btn btn-info" >
+                      <button  onClick={()=>dispatch(AddToCart(item.id))} className="btn btn-info" >
                         Add to Cart
                       </button>
                     </div>
@@ -35,6 +37,7 @@ const Home = () => {
               })}
           </div>
         </div>
+      </div>
       </div>
     </>
   );
